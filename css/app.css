@@ -1,0 +1,65 @@
+body{
+
+}
+div.calculator{
+  margin:60px auto;
+  width: 245px;
+  background-color:#777;
+}
+
+button{
+  width: 60px;
+  height: 50px;
+  padding:0;
+  border:none;
+  background:none;
+  font-size:20px;
+  color: black;
+}
+
+td[colspan="2"] button{
+  width:100%;
+}
+
+table{
+  border-collapse:collapse;
+  
+}
+
+table, th, td{
+  border: 1px solid #888;
+  text-align:center;
+  background-color: #eee;
+
+}
+
+input{
+  width:245px;
+  height: 60px;
+  opacity: 0.5;
+  background-color: #555;
+  padding:4px;
+  border:none;
+  font-size: 50px;
+  text-align:right;
+  color:white;
+  font-weight:100;
+}
+
+td{
+  background-color: #eee;
+  color:black;
+  padding: 0;
+
+}
+
+td.colored{
+  background-color:#add8e6;
+
+}
+td:last-child button{
+  color: white;
+}
+
+
+

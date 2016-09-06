@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8'>
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <title>Calculator</title>
+  </head>
+  <body>
+    <div class="calculator">
+      <table>
+        <tr>
+          <td colspan="4"><input id="output" type="text" value="0"></td>
+        </tr>
+        <tr>
+          <td><button onclick="reset()">AC</button></td>
+          <td><button onclick="flip()">+/-</button></td>
+          <td><button onclick="percent()">%</button></td>
+          <td class="colored"><button onclick="divide()">/</button></td>
+        </tr>
+        <tr>
+          <td><button onclick="seven()">7</button></td>
+          <td><button onclick="eight()">8</button></td>
+          <td><button onclick="nine()">9</button></td>
+          <td class="colored"><button onclick="multiply()">*</button></td>
+        </tr>
+        <tr>
+          <td><button onclick="four()">4</button></td>
+          <td><button onclick="five()">5</button></td>
+          <td><button onclick="six()">6</button></td>
+          <td class="colored"><button onclick="minus()">&ndash;</button></td>
+        </tr>
+        <tr>
+          <td><button onclick="one()">1</button></td>
+          <td><button onclick="two()">2</button></td>
+          <td><button onclick="three()">3</button></td>
+          <td class="colored"><button onclick="plus()">+</button></td>
+        </tr>
+        <tr>
+          <td colspan="2"><button onclick="zero()">0</button></td>
+          <td><button onclick="dot()">.</button></td>
+          <td class="colored"><button onclick="sum()">=</button></td>
+        </tr>
+      </table>
+
+    </div>
+    <script>
+
+      var output = document.querySelector("#output");
+      var operator;
+      var val;
+      var previous;
+      var set = false;
+
+      function reset() {
+        output.value = 0;
+        set = false;
+      }
+
+      function one() {
+        // Fetch current value
+        val = output.value;
+        // Set value to blank if zero
+        if(val == "0") {
+          val = "";
+        }
+        if(set == true) {
+          // Replace existing value
+          output.value = 1;
+          set = false;
+        } else {
+          // Add new number to existing value
+          output.value = val + 1;
+        }
+      }
+
+      function two() {
+        val = output.value;
+        if(val == "0") {
+          val = "";
+        }
+        if(set == true){
+          output.value = 2;
+          set = false;
+        } else{
+          output.value = val + 2;
+        }
+      }
+
+      function three() {
+        val = output.value;
+        if(val == "0") {
+          val = "";
+        }
+        if(set == true){
+          output.value = 3;
+          set = false;
+        } else{
+          output.value = val + 3;
+        }
+      }
+
+      function four() {
+        val = output.value;
+        if(val == "0"){
+          val = "";
+        }
+        if(set == true){
+          output.value = 4;
+          set = false;
+        } else{
+          output.value = val + 4;
+        }
+      }
+
+      function five() {
+        val = output.value;
+        if(val == "0"){
+          val = "";
+        }
+        if(set == true){
+          output.value = 5;
+          set = false;
+        } else{
+          output.value = val+ 5;
+        }
+      }
+
+      function six() {
+        val = output.value;
+        if(val == "0"){
+          val = "";
+        }
+        if(set == true){
+          output.value = 6;
+          set = false;
+        } else{
+          output.value = val + 6;
+        }
+      }
+
+      function seven() {
+        val = output.value;
+        if(val =="0"){
+          val = "";
+        }
+        if(set == true){
+          output.value = 7;
+          set = false;
+        } else{
+          output.value = val + 7;
+        }
+      }
+
+      function eight() {
+        val = output.value;
+        if(val =="0"){
+          val = "";
+        }
+        if(set == true){
+          output.value = 8;
+          set = false;
+        } else{
+          output.value = val + 8;
+        }
+      }
+
+      function nine() {
+        val = output.value;
+        if(val == "0"){
+          val = "";
+        }
+        if(set == true){
+          output.value = 9;
+          set = false;
+        } else{
+          output.value = val + 9;
+        }
+      }
+
+      function zero() {
+        val = output.value;
+        if(val == "0"){
+          val = "";
+        }
+        output.value = val + 0;
+      }
+
+      function dot() {
+        val = output.value;
+        if(val.indexOf(".") < 0){
+          output.value = val + ".";
+        }
+      }
+
+      function flip(){
+        output.value = parseFloat(output.value) * -1;
+      }
+
+      function percent(){
+        output.value = parseFloat(output.value) / 100;
+      }
+
+      function divide(){
+        operator = "/";
+        previous = output.value;
+        set = true;
+      }
+
+      function multiply(){
+        operator = "*";
+        previous = output.value;
+        set = true;
+      }
+
+      function minus(){
+        operator = "-";
+        previous = output.value;
+        set = true;
+      }
+
+      function plus(){
+        operator = "+";
+        previous = output.value;
+        set = true;
+      }
+
+      function sum(){
+        val = output.value;
+
+        if (operator == "+"){
+          output.value = parseFloat(previous) + parseFloat(val);
+        }
+
+        if (operator == "-"){
+          output.value = parseFloat(previous) - parseFloat(val);
+        }
+
+        if (operator == "*"){
+          output.value = parseFloat(previous) * parseFloat(val);
+        }
+
+        if (operator =="/"){
+          output.value = parseFloat(previous) / parseFloat(val);
+        }
+
+      }
+
+      function setNumber(el) {
+        output.value = parseInt(el.textContent);
+      }
+
+    </script>
+   </body>
+</html>
